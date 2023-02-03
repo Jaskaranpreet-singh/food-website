@@ -16,7 +16,7 @@ const Sllider = ({ slice }) => (
     <Splide aria-label="My Favorite Images">
       {
         slice?.items?.map((item, i) =>
-          <SplideSlide>
+          <SplideSlide key={i}>
             <img className='slidesection__img' src={item.img.url} alt={item.img.alt} />
           </SplideSlide>
         )

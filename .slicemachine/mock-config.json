@@ -26,13 +26,15 @@
       "default": {
         "primary": {}
       }
-    }
+    },
+    "Footer": {}
   },
   "_cts": {
     "homepage": {},
     "navigation": {
       "menu": {}
     },
-    "settings": {}
+    "settings": {},
+    "footer": {}
   }
 }

@@ -6,8 +6,6 @@ import styles from "../../assets/scss/Modules/navbar.module.scss"
 
 export default function Header({ header, data }) {
   const slices = header?.data?.menu;
-  console.log(slices);
-  console.log(header?.data?.menu);
   return (
     <div className={styles.header}>
       <div className="header__container">

@@ -6,6 +6,18 @@ import type * as prismic from "@prismicio/client";
 type Simplify<T> = {
     [KeyType in keyof T]: T[KeyType];
 };
+/** Content for footer documents */
+type FooterDocumentData = Record<string, never>;
+/**
+ * footer document from Prismic
+ *
+ * - **API ID**: `footer`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type FooterDocument<Lang extends string = string> = prismicT.PrismicDocumentWithoutUID<Simplify<FooterDocumentData>, "footer", Lang>;
 /** Content for homepage documents */
 interface HomepageDocumentData {
     /**
@@ -152,7 +164,56 @@ type SettingsDocumentDataSlicesSlice = never;
  * @typeParam Lang - Language API ID of the document.
  */
 export type SettingsDocument<Lang extends string = string> = prismicT.PrismicDocumentWithoutUID<Simplify<SettingsDocumentData>, "settings", Lang>;
-export type AllDocumentTypes = HomepageDocument | NavigationDocument | SettingsDocument;
+export type AllDocumentTypes = FooterDocument | HomepageDocument | NavigationDocument | SettingsDocument;
+/**
+ * Primary content in Footer → Primary
+ *
+ */
+interface FooterSliceDefaultPrimary {
+    /**
+     * Title field in *Footer → Primary*
+     *
+     * - **Field Type**: Title
+     * - **Placeholder**: This is where it all begins...
+     * - **API ID Path**: footer.primary.title
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    title: prismicT.TitleField;
+    /**
+     * Description field in *Footer → Primary*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: A nice description of your feature
+     * - **API ID Path**: footer.primary.description
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    description: prismicT.RichTextField;
+}
+/**
+ * Default variation for Footer Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `Footer`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type FooterSliceDefault = prismicT.SharedSliceVariation<"default", Simplify<FooterSliceDefaultPrimary>, never>;
+/**
+ * Slice variation for *Footer*
+ *
+ */
+type FooterSliceVariation = FooterSliceDefault;
+/**
+ * Footer Shared Slice
+ *
+ * - **API ID**: `footer`
+ * - **Description**: `Footer`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type FooterSlice = prismicT.SharedSlice<"footer", FooterSliceVariation>;
 /**
  * Primary content in Herosection → Primary
  *
@@ -346,6 +407,6 @@ declare module "@prismicio/client" {
         (repositoryNameOrEndpoint: string, options?: prismic.ClientConfig): prismic.Client<AllDocumentTypes>;
     }
     namespace Content {
-        export type { HomepageDocumentData, HomepageDocumentDataSlicesSlice, HomepageDocument, NavigationDocumentData, NavigationDocumentDataMenuItem, NavigationDocumentDataSlicesSlice, NavigationDocument, SettingsDocumentData, SettingsDocumentDataSlicesSlice, SettingsDocument, AllDocumentTypes, HomepageSliceDefaultPrimary, HomepageSliceDefaultItem, HomepageSliceDefault, HomepageSliceVariation, HomepageSlice, OrdersSliceDefaultPrimary, OrdersSliceDefaultItem, OrdersSliceDefault, OrdersSliceVariation, OrdersSlice, SlliderSliceDefaultItem, SlliderSliceDefault, SlliderSliceOrders, SlliderSliceVariation, SlliderSlice };
+        export type { FooterDocumentData, FooterDocument, HomepageDocumentData, HomepageDocumentDataSlicesSlice, HomepageDocument, NavigationDocumentData, NavigationDocumentDataMenuItem, NavigationDocumentDataSlicesSlice, NavigationDocument, SettingsDocumentData, SettingsDocumentDataSlicesSlice, SettingsDocument, AllDocumentTypes, FooterSliceDefaultPrimary, FooterSliceDefault, FooterSliceVariation, FooterSlice, HomepageSliceDefaultPrimary, HomepageSliceDefaultItem, HomepageSliceDefault, HomepageSliceVariation, HomepageSlice, OrdersSliceDefaultPrimary, OrdersSliceDefaultItem, OrdersSliceDefault, OrdersSliceVariation, OrdersSlice, SlliderSliceDefaultItem, SlliderSliceDefault, SlliderSliceOrders, SlliderSliceVariation, SlliderSlice };
     }
 }
