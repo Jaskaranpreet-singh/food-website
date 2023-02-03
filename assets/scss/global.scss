@@ -1,0 +1,20 @@
+@import "./loader.scss";
+
+*{
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+}
+
+.container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: $container;  
+  padding-right: $padding-x+35px;
+  padding-left: $padding-x+35px;
+}
+.splide__slide {
+  text-align: center;
+}
+

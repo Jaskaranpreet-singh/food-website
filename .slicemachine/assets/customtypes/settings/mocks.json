@@ -1,0 +1,28 @@
+{
+  "logo": {
+    "__TYPE__": "StructuredTextContent",
+    "value": [
+      {
+        "type": "paragraph",
+        "content": {
+          "text": "Amet non irure elit nisi ex do ad nostrud. Ullamco enim mollit laborum dolor."
+        }
+      }
+    ]
+  },
+  "name": {
+    "__TYPE__": "StructuredTextContent",
+    "value": [
+      {
+        "type": "paragraph",
+        "content": {
+          "text": "Mollit esse esse nisi fugiat consectetur id dolor mollit reprehenderit deserunt."
+        }
+      }
+    ]
+  },
+  "slices": {
+    "__TYPE__": "SliceContentType",
+    "value": []
+  }
+}

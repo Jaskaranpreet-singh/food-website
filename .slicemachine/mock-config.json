@@ -1,0 +1,38 @@
+{
+  "slices": {
+    "Homepage": {},
+    "Menu": {
+      "default": {
+        "primary": {},
+        "items": {}
+      }
+    },
+    "Herosection": {
+      "default": {
+        "primary": {},
+        "items": {}
+      }
+    },
+    "Sllider": {
+      "default": {
+        "primary": {}
+      },
+      "orders": {
+        "items": {},
+        "primary": {}
+      }
+    },
+    "Orders": {
+      "default": {
+        "primary": {}
+      }
+    }
+  },
+  "_cts": {
+    "homepage": {},
+    "navigation": {
+      "menu": {}
+    },
+    "settings": {}
+  }
+}
